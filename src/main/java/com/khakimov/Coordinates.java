@@ -1,0 +1,31 @@
+package com.khakimov;
+
+public class Coordinates {
+    // horizontal coordinate
+    public final File file;
+    // vertical coordinate
+    public final Integer rank;
+
+    public Coordinates(File file, Integer rank) {
+        this.file = file;
+        this.rank = rank;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Coordinates that = (Coordinates) o;
+
+        if (file != that.file) return false;
+        return rank.equals(that.rank);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = file.hashCode();
+        result = 31 * result + rank.hashCode();
+        return result;
+    }
+}
