@@ -66,7 +66,6 @@ public class BoardConsoleRenderer {
 
             case "King":
                 return "♔";
-
         }
 
         return "";
