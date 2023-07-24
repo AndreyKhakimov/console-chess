@@ -1,6 +1,9 @@
 package com.khakimov;
 
+import com.khakimov.piece.Piece;
+
 import java.util.Scanner;
+import java.util.Set;
 
 public class InputCoordinates {
 
@@ -47,7 +50,48 @@ public class InputCoordinates {
         }
     }
 
-    public static void main(String[] args) {
+    public static Coordinates inputPieceCoordinatesForColor(Color color, Board board) {
+        while (true) {
+            System.out.println("Enter coordinates for a piece to move");
+            Coordinates coordinates = input();
+
+            if (board.isSquareEmpty(coordinates)) {
+                System.out.println("Empty square");
+                continue;
+            }
+
+            Piece piece = board.getPiece(coordinates);
+            if (piece.color != color) {
+                System.out.println("Wrong color");
+                continue;
+            }
+
+            Set<Coordinates> availableMoveSquares = piece.getAvailableMoveSquares(board);
+            if (availableMoveSquares.size() == 0) {
+                System.out.println("Blocked piece");
+                continue;
+            }
+
+            return coordinates;
+        }
+    }
+
+    public static Coordinates inputAvailableSquare(Set<Coordinates> coordinates) {
+        while (true) {
+            System.out.println("Please, enter your move for selected piece");
+            Coordinates input = input();
+
+            if (!coordinates.contains(input)) {
+                System.out.println("Non-available square");
+                continue;
+            }
+
+            return input;
+        }
+    }
+
+
+        public static void main(String[] args) {
         Coordinates coordinates = input();
         System.out.println(coordinates);
     }
