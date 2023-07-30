@@ -91,7 +91,7 @@ public class InputCoordinates {
     }
 
 
-        public static void main(String[] args) {
+    public static void main(String[] args) {
         Coordinates coordinates = input();
         System.out.println(coordinates);
     }
