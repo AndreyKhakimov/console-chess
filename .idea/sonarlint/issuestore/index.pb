@@ -6,8 +6,4 @@ U
 \
 ,src/main/java/com/khakimov/piece/Knight.java,7/c/7cb5f1ed0d54bc075c2348a96c18908be3cfad95
 Z
-*src/main/java/com/khakimov/piece/Pawn.java,c/b/cb1da4bf8e4672b9f0bbd05166b276314eac1bcc
-Z
 *src/main/java/com/khakimov/piece/King.java,9/f/9f7f3b8a26d800a87b2de219934fac9caab58a2f
-f
-6src/main/java/com/khakimov/piece/CoordinatesShift.java,6/b/6b2fa90c25152deb347751e15fcd3cf97b59cd56

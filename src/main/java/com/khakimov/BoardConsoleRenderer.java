@@ -22,20 +22,20 @@ public class BoardConsoleRenderer {
         }
 
         for (int rank = 8; rank >= 1; rank--) {
-            String line = "";
+            StringBuilder line = new StringBuilder();
             for (File file : File.values()) {
                 Coordinates coordinates = new Coordinates(file, rank);
                 boolean isHighlight = availableMoveSquares.contains(coordinates);
 
                 if (board.isSquareEmpty(coordinates)) {
-                line += getSpriteForEmptySquare(coordinates, isHighlight);
+                line.append(getSpriteForEmptySquare(coordinates, isHighlight));
                 } else {
-                    line += getPieceSprite(board.getPiece(coordinates), isHighlight);
+                    line.append(getPieceSprite(board.getPiece(coordinates), isHighlight));
                 }
             }
 
             // reset the console line color because of the line goes with the last color till the end
-            line += ANSI_RESET;
+            line.append(ANSI_RESET);
             System.out.println(line);
         }
     }
