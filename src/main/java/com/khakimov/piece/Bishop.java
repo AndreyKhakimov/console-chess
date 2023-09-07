@@ -12,6 +12,6 @@ public class Bishop extends LongRangePiece implements IBishop{
 
     @Override
     protected Set<CoordinatesShift> getPieceMoves() {
-       getBishopMoves();
+       return getBishopMoves();
     }
 }
