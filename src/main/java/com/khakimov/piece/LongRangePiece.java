@@ -8,7 +8,7 @@ import com.khakimov.Coordinates;
 import java.util.List;
 
 public abstract class LongRangePiece extends Piece {
-    public LongRangePiece(Color color, Coordinates coordinates) {
+    protected LongRangePiece(Color color, Coordinates coordinates) {
         super(color, coordinates);
     }
 
@@ -17,25 +17,29 @@ public abstract class LongRangePiece extends Piece {
         boolean result = super.isSquareAvailableForMove(coordinates, board);
 
         if (result) {
-            List<Coordinates> coordinatesBetween;
-            if (this.coordinates.file == coordinates.file) {
-                coordinatesBetween = BoardUtils.getVerticalCoordinatesBetween(this.coordinates, coordinates);
-            } else if (this.coordinates.rank == coordinates.rank){
-                coordinatesBetween = BoardUtils.getHorizontalCoordinatesBetween(this.coordinates, coordinates);
-            } else {
-                coordinatesBetween = BoardUtils.getDiagonalCoordinatesBetween(this.coordinates, coordinates);
-            }
-
-            for (Coordinates c : coordinatesBetween) {
-                if (!board.isSquareEmpty(c)) {
-                    return false;
-                }
-            }
-
-            return true;
+            return isSquareAvailableForAttack(coordinates, board);
         } else {
             return false;
         }
     }
 
+    @Override
+    protected boolean isSquareAvailableForAttack(Coordinates coordinates, Board board) {
+        List<Coordinates> coordinatesBetween;
+        if (this.coordinates.file == coordinates.file) {
+            coordinatesBetween = BoardUtils.getVerticalCoordinatesBetween(this.coordinates, coordinates);
+        } else if (this.coordinates.rank == coordinates.rank){
+            coordinatesBetween = BoardUtils.getHorizontalCoordinatesBetween(this.coordinates, coordinates);
+        } else {
+            coordinatesBetween = BoardUtils.getDiagonalCoordinatesBetween(this.coordinates, coordinates);
+        }
+
+        for (Coordinates c : coordinatesBetween) {
+            if (!board.isSquareEmpty(c)) {
+                return false;
+            }
+        }
+
+        return true;
+    }
 }

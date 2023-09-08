@@ -2,8 +2,7 @@ package com.khakimov;
 
 import com.khakimov.piece.*;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class Board {
     Map<Coordinates, Piece> pieces = new HashMap<>();
@@ -71,4 +70,30 @@ public class Board {
     public static boolean isSquareDark(Coordinates coordinates) {
         return (((coordinates.file.ordinal() + 1) + coordinates.rank) % 2) == 0;
     }
+    private List<Piece> getPiecesByColor(Color color) {
+        List<Piece> result = new ArrayList<>();
+        
+        for (Piece piece : pieces.values()) {
+            if (piece.color == color) {
+                result.add(piece);
+            }
+        }
+        
+        return result;
+    }
+
+    public boolean isSquareAttackedByColor(Coordinates coordinates, Color color) {
+        List<Piece> pieces = getPiecesByColor(color);
+
+        for (Piece piece : pieces) {
+            Set<Coordinates> attackedSquares = piece.getAttackedSquares(this);
+
+            if (attackedSquares.contains(coordinates)) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
 }
