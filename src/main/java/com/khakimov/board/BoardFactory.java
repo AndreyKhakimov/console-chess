@@ -1,13 +1,15 @@
-package com.khakimov;
+package com.khakimov.board;
 
-import com.khakimov.piece.Pawn;
+import com.khakimov.Coordinates;
+import com.khakimov.File;
+import com.khakimov.PieceFactory;
 
 public class BoardFactory {
 
     private PieceFactory pieceFactory = new PieceFactory();
 
     public Board fromFEN(String fen) {
-        Board board = new Board();
+        Board board = new Board(fen);
 
         String[] parts = fen.split(" ");
         String fenPiecePositions = parts[0];
@@ -36,5 +38,15 @@ public class BoardFactory {
         }
 
         return board;
+    }
+
+    public Board copy(Board source) {
+        Board clone = fromFEN(source.startingFen);
+
+        for (Move move : source.moves) {
+            clone.makeMove(move);
+        }
+
+        return clone;
     }
 }

@@ -1,6 +1,6 @@
 package com.khakimov.piece;
 
-import com.khakimov.Board;
+import com.khakimov.board.Board;
 import com.khakimov.Color;
 import com.khakimov.Coordinates;
 

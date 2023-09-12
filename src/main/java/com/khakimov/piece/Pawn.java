@@ -1,6 +1,6 @@
 package com.khakimov.piece;
 
-import com.khakimov.Board;
+import com.khakimov.board.Board;
 import com.khakimov.Color;
 import com.khakimov.Coordinates;
 
@@ -57,7 +57,7 @@ public class Pawn extends Piece {
     @Override
     protected boolean isSquareAvailableForMove(Coordinates coordinates, Board board) {
         if (this.coordinates.file == coordinates.file) {
-            return board.isSquareEmpty(coordinates)
+            return board.isSquareEmpty(coordinates);
         } else {
             if (board.isSquareEmpty(coordinates)) {
                 return false;
@@ -65,6 +65,5 @@ public class Pawn extends Piece {
                 return board.getPiece(coordinates).color != color;
             }
         }
-        return super.isSquareAvailableForMove(coordinates, board);
     }
 }

@@ -3,16 +3,6 @@
 pom.xml,4/4/442292b8a7efeabbe4cc176709b833b1792140ec
 \
 ,src/main/java/com/khakimov/piece/Knight.java,7/c/7cb5f1ed0d54bc075c2348a96c18908be3cfad95
-T
-$src/main/java/com/khakimov/Main.java,2/e/2e3e4ffec6c8c82645b8e5652efc74679b2ce235
-\
-,src/main/java/com/khakimov/PieceFactory.java,c/4/c407c2d995bb61a48965f43459e23e0bf5501839
-`
-0src/main/java/com/khakimov/InputCoordinates.java,0/6/0642af1547e1fc9821bab8ed37f2024616f14bb7
-\
-,src/main/java/com/khakimov/BoardFactory.java,3/3/33e76ade25f57dfa09de844ca6f372817d79476f
-T
-$src/main/java/com/khakimov/Game.java,3/e/3ed195bc377e7a194c3d2625f04491b5c8c3ec12
 [
 +src/main/java/com/khakimov/Coordinates.java,6/e/6edbd033fecb07805a79cada5e2189386d4f76f0
 Z
@@ -25,3 +15,7 @@ Z
 +src/main/java/com/khakimov/piece/IRook.java,e/a/ea3335c86743acf605f0049095ea76d1c46dd5fd
 ]
 -src/main/java/com/khakimov/piece/IBishop.java,1/8/1824cccec2a911cbc81c46f765f5bfc7c2fe811d
+T
+$src/main/java/com/khakimov/File.java,d/8/d898d991f8865843a1758e7c11a8dacd00416c38
+[
++src/main/java/com/khakimov/piece/Queen.java,7/d/7ddd858789863f5ff6b319642202541c1a706a7d

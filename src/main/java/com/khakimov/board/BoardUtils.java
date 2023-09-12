@@ -1,4 +1,7 @@
-package com.khakimov;
+package com.khakimov.board;
+
+import com.khakimov.Coordinates;
+import com.khakimov.File;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,11 +1,21 @@
-package com.khakimov;
+package com.khakimov.board;
 
+import com.khakimov.Color;
+import com.khakimov.Coordinates;
+import com.khakimov.File;
 import com.khakimov.piece.*;
 
 import java.util.*;
 
 public class Board {
-    Map<Coordinates, Piece> pieces = new HashMap<>();
+    public final String startingFen;
+    public Map<Coordinates, Piece> pieces = new HashMap<>();
+
+    public List<Move> moves = new ArrayList<>();
+
+    public Board(String startingFen) {
+        this.startingFen = startingFen;
+    }
 
     public void setPiece(Coordinates coordinates, Piece piece) {
         piece.coordinates = coordinates;
@@ -16,11 +26,13 @@ public class Board {
         pieces.remove(coordinates);
     }
 
-    public void movePiece(Coordinates from, Coordinates to) {
-        Piece piece = getPiece(from);
+    public void makeMove(Move move) {
+        Piece piece = getPiece(move.from);
 
-        removePiece(from);
-        setPiece(to, piece);
+        removePiece(move.from);
+        setPiece(move.to, piece);
+
+        moves.add(move);
     }
 
     public boolean isSquareEmpty(Coordinates coordinates) {
@@ -70,7 +82,7 @@ public class Board {
     public static boolean isSquareDark(Coordinates coordinates) {
         return (((coordinates.file.ordinal() + 1) + coordinates.rank) % 2) == 0;
     }
-    private List<Piece> getPiecesByColor(Color color) {
+    public List<Piece> getPiecesByColor(Color color) {
         List<Piece> result = new ArrayList<>();
         
         for (Piece piece : pieces.values()) {

@@ -1,8 +1,7 @@
 package com.khakimov;
 
-import com.khakimov.piece.Piece;
-
-import java.util.Set;
+import com.khakimov.board.Board;
+import com.khakimov.board.BoardFactory;
 
 public class Main {
     public static void main(String[] args) {

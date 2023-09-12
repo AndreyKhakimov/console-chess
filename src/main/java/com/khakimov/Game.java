@@ -1,8 +1,7 @@
 package com.khakimov;
 
-import com.khakimov.piece.Piece;
-
-import java.util.Set;
+import com.khakimov.board.Board;
+import com.khakimov.board.Move;
 
 public class Game {
 
@@ -25,19 +24,11 @@ public class Game {
             } else {
                 System.out.println("Black to move");
             }
-            // read input
-            Coordinates sourceCoordinates = InputCoordinates.inputPieceCoordinatesForColor(
-                    isWhiteToMove ? Color.WHITE : Color.BLACK, board
-            );
 
-            Piece piece = board.getPiece(sourceCoordinates);
-            Set<Coordinates> availableMoveSquares = piece.getAvailableMoveSquares(board);
-
-            renderer.render(board, piece);
-            Coordinates targetCoordinates = InputCoordinates.inputAvailableSquare(availableMoveSquares);
+            Move move = InputCoordinates.inputMove(board, isWhiteToMove ? Color.WHITE : Color.BLACK, renderer);
 
             // make move
-            board.movePiece(sourceCoordinates, targetCoordinates);
+            board.makeMove(move);
 
             // pass move
             isWhiteToMove =! isWhiteToMove;

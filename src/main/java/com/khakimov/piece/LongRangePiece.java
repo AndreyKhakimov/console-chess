@@ -1,7 +1,7 @@
 package com.khakimov.piece;
 
-import com.khakimov.Board;
-import com.khakimov.BoardUtils;
+import com.khakimov.board.Board;
+import com.khakimov.board.BoardUtils;
 import com.khakimov.Color;
 import com.khakimov.Coordinates;
 

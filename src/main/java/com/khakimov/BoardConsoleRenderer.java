@@ -1,5 +1,6 @@
 package com.khakimov;
 
+import com.khakimov.board.Board;
 import com.khakimov.piece.Piece;
 
 import java.util.Set;
